@@ -10,13 +10,16 @@ void main(List<String> arguments) async {
   Carsmodel carsmodel = Carsmodel.fromJson(response.data);
 
   int count = 0;
-  int carprice = 0;
-  List<Cars> Yellow = data.cars;
-  for(Cars car in Yellow){
+  int price = 0;
+  double pisun = 0;
+  for(var car in carsmodel.cars){
     if(car.car_color == 'Yellow'){
-      String carprice = car.price.substring(1);
+      String price = car.price.substring(1);
+      double priceend = double.parse(price);
       count ++; 
+      pisun += priceend;
     }
+    double end = pisun/count;
+    print(end);
   }  
-  print(carprice/count);
 }
